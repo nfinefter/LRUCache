@@ -8,15 +8,7 @@ namespace LRUCache
 {
     public interface ICache<TKey, TValue>
     {
-        bool TryGetValue(TKey key, out TValue value)
-        {
-
-
-            return false;
-        }
-        void Put(TKey Key, TValue value)
-        {
-
-        }
+        bool TryGetValue(TKey key, out TValue value);
+        void Put(TKey Key, TValue value);
     }
 }

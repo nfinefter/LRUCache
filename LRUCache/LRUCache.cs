@@ -10,11 +10,11 @@ namespace LRUCache
 {
     public class LRUCache<TKey, TValue> : ICache<TKey, TValue>
     {
-        public LinkedList<KeyValuePair<TKey, TValue>> List;
+        private LinkedList<KeyValuePair<TKey, TValue>> List;
 
-        public Dictionary<TKey, LinkedListNode<KeyValuePair<TKey, TValue>>> Cache;
+        private Dictionary<TKey, LinkedListNode<KeyValuePair<TKey, TValue>>> Cache;
 
-        private int Count => Cache.Count;
+        public int Count => Cache.Count;
 
         private int Capacity = 0;
 
@@ -52,7 +52,7 @@ namespace LRUCache
 
                 List.Remove(node);
 
-                node.Value.Value = value;
+                node.Value = KeyValuePair.Create(key, value);
 
                 List.AddFirst(node);
             }
